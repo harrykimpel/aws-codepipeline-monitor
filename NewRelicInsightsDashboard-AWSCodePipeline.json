@@ -1,0 +1,206 @@
+{
+  "dashboard": {
+    "title": "AWS CodePipeline",
+    "description": null,
+    "icon": "bar-chart",
+    "visibility": "all",
+    "editable": "editable_by_all",
+    "metadata": {
+      "version": 1
+    },
+    "widgets": [
+      {
+        "visualization": "facet_bar_chart",
+        "layout": {
+          "width": 1,
+          "height": 1,
+          "row": 1,
+          "column": 1
+        },
+        "data": [
+          {
+            "nrql": "SELECT count(stageName) FROM AWSCodePipeline FACET pipelineName SINCE 30 MINUTES AGO"
+          }
+        ],
+        "presentation": {
+          "title": "Pipelines",
+          "notes": null
+        }
+      },
+      {
+        "visualization": "faceted_line_chart",
+        "layout": {
+          "width": 2,
+          "height": 1,
+          "row": 1,
+          "column": 2
+        },
+        "data": [
+          {
+            "nrql": "SELECT count(stageName) FROM AWSCodePipeline FACET pipelineName SINCE 30 MINUTES AGO TIMESERIES"
+          }
+        ],
+        "presentation": {
+          "title": "Pipelines over time",
+          "notes": null
+        }
+      },
+      {
+        "visualization": "facet_bar_chart",
+        "layout": {
+          "width": 1,
+          "height": 1,
+          "row": 2,
+          "column": 1
+        },
+        "data": [
+          {
+            "nrql": "SELECT count(stageName) FROM AWSCodePipeline FACET stageName  SINCE 30 MINUTES AGO"
+          }
+        ],
+        "presentation": {
+          "title": "Stages",
+          "notes": null
+        }
+      },
+      {
+        "visualization": "faceted_area_chart",
+        "layout": {
+          "width": 2,
+          "height": 1,
+          "row": 2,
+          "column": 2
+        },
+        "data": [
+          {
+            "nrql": "SELECT count(*) FROM AWSCodePipeline FACET stageName  SINCE 30 MINUTES AGO TIMESERIES"
+          }
+        ],
+        "presentation": {
+          "title": "Stages over time",
+          "notes": null
+        }
+      },
+      {
+        "visualization": "facet_bar_chart",
+        "layout": {
+          "width": 1,
+          "height": 1,
+          "row": 3,
+          "column": 1
+        },
+        "data": [
+          {
+            "nrql": "SELECT count(stageName) FROM AWSCodePipeline FACET latestExecutionStatus SINCE 30 MINUTES AGO"
+          }
+        ],
+        "presentation": {
+          "title": "Status Latest Execution",
+          "notes": null
+        }
+      },
+      {
+        "visualization": "faceted_line_chart",
+        "layout": {
+          "width": 2,
+          "height": 1,
+          "row": 3,
+          "column": 2
+        },
+        "data": [
+          {
+            "nrql": "SELECT count(stageName) FROM AWSCodePipeline FACET latestExecutionStatus SINCE 30 MINUTES AGO TIMESERIES"
+          }
+        ],
+        "presentation": {
+          "title": "Status Latest Execution over time",
+          "notes": null
+        }
+      },
+      {
+        "visualization": "facet_bar_chart",
+        "layout": {
+          "width": 1,
+          "height": 1,
+          "row": 4,
+          "column": 1
+        },
+        "data": [
+          {
+            "nrql": "SELECT count(stageName) FROM AWSCodePipeline FACET actionStatesName  SINCE 30 MINUTES AGO"
+          }
+        ],
+        "presentation": {
+          "title": "Action States",
+          "notes": null
+        }
+      },
+      {
+        "visualization": "faceted_area_chart",
+        "layout": {
+          "width": 2,
+          "height": 1,
+          "row": 4,
+          "column": 2
+        },
+        "data": [
+          {
+            "nrql": "SELECT count(stageName) FROM AWSCodePipeline FACET actionStatesName  SINCE 30 MINUTES AGO TIMESERIES"
+          }
+        ],
+        "presentation": {
+          "title": "Action States over time",
+          "notes": null
+        }
+      },
+      {
+        "visualization": "facet_bar_chart",
+        "layout": {
+          "width": 1,
+          "height": 1,
+          "row": 5,
+          "column": 1
+        },
+        "data": [
+          {
+            "nrql": "SELECT count(stageName) FROM AWSCodePipeline FACET actionStateslatestExecutionStatus   SINCE 30 MINUTES AGO"
+          }
+        ],
+        "presentation": {
+          "title": "Action States: Status Latest Execution",
+          "notes": null
+        }
+      },
+      {
+        "visualization": "faceted_area_chart",
+        "layout": {
+          "width": 2,
+          "height": 1,
+          "row": 5,
+          "column": 2
+        },
+        "data": [
+          {
+            "nrql": "SELECT count(stageName) FROM AWSCodePipeline FACET actionStateslatestExecutionStatus   SINCE 30 MINUTES AGO TIMESERIES"
+          }
+        ],
+        "presentation": {
+          "title": "Action States: Status Latest Execution over time",
+          "notes": null
+        }
+      }
+    ],
+    "filter": {
+      "event_types": [
+        "AWSCodePipeline"
+      ],
+      "attributes": [
+        "pipelineName",
+        "stageName",
+        "latestExecutionStatus",
+        "actionStatesName",
+        "actionStateslatestExecutionStatus"
+      ]
+    }
+  }
+}
