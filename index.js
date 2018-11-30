@@ -90,7 +90,7 @@ exports.handler = (event, context, callback) => {
                       elementStageState.latestExecution.status, 
                       elementStageState.entityUrl, 
                       elementStageState.revisionUrl, 
-                      elementStage.latestExecutionStatus, 
+                      elementStage.latestExecution.status, 
                       function(err) {
                           if (err) {
                             console.log(`error sending to insights: ${err}`);
